@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./styles.css";
+import { Header } from "./components/Header";
+import React, { useState } from "react";
+
+// Normal POC
+import { LeftContainer } from "./components/LeftContainer";
+import { MiddleContainer } from "./components/MiddleContainer";
+import { RightContainer } from "./components/RightContainer";
+
+// Specific POC
+import { InputSection } from "./components/InputSection";
+import { ResultsSection } from "./components/ResultsSection";
+// import from "./Header";
 
 function App() {
+  const [translatePhraseResultPOC, setTranslatePhraseResultPOC] =
+    useState("Awaiting result...");
+  const [translatePhrasePOC, setTranslatePhrasePOC] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Newsletter(input+button / right) + Tweets (text area / middle) is what I need */}
+      {/* <Header /> */}
+      {/* <LeftContainer /> */}
+      {/* <MiddleContainer />
+      <RightContainer /> */}
+      <InputSection
+        translatePhrasePOC={translatePhrasePOC}
+        setTranslatePhrasePOC={setTranslatePhrasePOC}
+        setTranslatePhraseResultPOC={setTranslatePhraseResultPOC}
+      />
+      <ResultsSection
+        translatePhraseResultPOC={translatePhraseResultPOC}
+        setTranslatePhraseResultPOC={setTranslatePhraseResultPOC}
+      />
     </div>
   );
 }
